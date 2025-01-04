@@ -25,7 +25,7 @@ const Summary = () => {
 
   const fetchBookings = async (date) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/bookings?date=${date}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/bookings?date=${date}`, { withCredentials: true });
       setAllBookings(response.data);
     } catch (err) {
       console.error('Error fetching bookings:', err);

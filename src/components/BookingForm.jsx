@@ -26,7 +26,7 @@ const BookingForm = () => {
   // Fetch bookings for the selected date
   const fetchBookings = async (date) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/bookings?date=${date}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/bookings?date=${date}`, { withCredentials: true });
       setBookedSlots(response.data.map((b) => b.time));
       setAvailableSlots(generateTimeSlots('10:00', '22:00', 30));
     } catch (err) {
