@@ -11,7 +11,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/signup`, formData);
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/auth/signup`, formData, { withCredentials: true });
       setMessage('Signup successful! Redirecting to login...');
       setTimeout(() => navigate('/login'), 2000);
     } catch (err) {
